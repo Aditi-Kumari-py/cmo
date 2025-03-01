@@ -21,5 +21,4 @@ scipy
 tensorflow
 pillow
 scikit-learn
-
-
+flask-cors
