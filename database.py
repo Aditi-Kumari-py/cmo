@@ -2,8 +2,8 @@ from pymongo import MongoClient
 import gridfs
 import redis
 
-# Connect to MongoDB
-client = MongoClient("mongodb://localhost:27017/")  # Change to your MongoDB URL
+MONGO_URI = "mongodb+srv://cmo_admin:Admin_cmo123@cluster0.mongodb.net/face_recognition_db?retryWrites=true&w=majority"# Connect to MongoDB
+client = MongoClient("MONGO_URI")  # Change to your MongoDB URL
 db = client["face_recognition_db"]  # Database name
 
 # GridFS setup for storing images
