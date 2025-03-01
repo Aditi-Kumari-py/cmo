@@ -3,7 +3,8 @@ import gridfs
 import redis
 
 # MongoDB Atlas connection URI
-MONGO_URI = "mongodb+srv://cmo_admin:Admin_cmo123@cluster0.mongodb.net/face_recognition_db?retryWrites=true&w=majority"
+MONGO_URI = "mongodb://cmo_admin:Admin_cmo123@cluster0-shard-00-00.ktndx.mongodb.net:27017,cluster0-shard-00-01.ktndx.mongodb.net:27017,cluster0-shard-00-02.ktndx.mongodb.net:27017/?ssl=true&replicaSet=atlas-haei1n-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0"
+"
 
 # Connect to MongoDB
 client = MongoClient(MONGO_URI)  # ✅ Corrected: Removed quotes around MONGO_URI
