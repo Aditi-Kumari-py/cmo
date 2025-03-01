@@ -37,14 +37,13 @@
 #         print(f"❌ Error extracting face embedding: {e}")
 #         return None
 
-
 import numpy as np
 import cv2
 from keras_facenet import FaceNet
 from database import db, fs
 from PIL import Image
 
-# Load FaceNet Model
+# ✅ Load FaceNet Model
 embedder = FaceNet()
 
 def extract_face_embedding(image_path):
@@ -52,8 +51,8 @@ def extract_face_embedding(image_path):
         # ✅ Load image with PIL and ensure correct format
         image = Image.open(image_path).convert("RGB")
 
-        # ✅ Resize image correctly to 160x160 (FaceNet requirement)
-        image = image.resize((160, 160))  
+        # ✅ Optimize memory by reducing image size
+        image = image.resize((128, 128))  # Reduced from 160x160
 
         # ✅ Convert to NumPy array
         image = np.array(image)
@@ -69,7 +68,7 @@ def extract_face_embedding(image_path):
             print("❌ No face detected.")
             return None
 
-        embeddings = [d["embedding"].tolist() for d in detections]  # ✅ Convert to list
+        embeddings = [d["embedding"] for d in detections]  # ✅ Store as NumPy arrays (better for matching)
         print(f"✅ Extracted {len(embeddings)} face embeddings.")
         return embeddings
 
