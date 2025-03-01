@@ -20,4 +20,6 @@ keras_facenet
 scipy
 tensorflow
 pillow
+scikit-learn
+
 
